@@ -1,0 +1,15 @@
+bin/
+obj/
+dist/
+.vs/
+.idea/
+*.user
+TestResults/
+
+web/node_modules/
+web/dist/
+src/Wellbeing.Service/wwwroot/*
+!src/Wellbeing.Service/wwwroot/.gitkeep
+
+# настройки Claude Code
+.claude/

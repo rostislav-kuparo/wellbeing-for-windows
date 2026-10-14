@@ -1,0 +1,91 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-display: 'Segoe UI Variable Display', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/*
+ * Токены графиков. Категориальная палитра — в фиксированном порядке (цвет закреплён за программой, а не за местом),
+ * проверена на различимость при дальтонизме отдельно для светлой и тёмной поверхности.
+ */
+:root {
+  color-scheme: light;
+  --surface: #ffffff;
+  --grid: #e4e4e7;
+  --axis: #d4d4d8;
+  --muted: #71717a;
+  --ink: #18181b;
+  --ink-2: #52525b;
+  --hover: rgba(24, 24, 27, 0.05);
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+  --series-other: #a1a1aa;
+  --compare: #c4c4cc;
+  --good: #0ca30c;
+  --good-text: #006300;
+  --warning: #fab219;
+  --critical: #d03b3b;
+  --accent: #7c3aed;
+}
+
+.dark {
+  color-scheme: dark;
+  --surface: #18181b;
+  --grid: #27272a;
+  --axis: #3f3f46;
+  --muted: #a1a1aa;
+  --ink: #fafafa;
+  --ink-2: #d4d4d8;
+  --hover: rgba(255, 255, 255, 0.05);
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #008300;
+  --series-7: #9085e9;
+  --series-other: #52525b;
+  --compare: #46464e;
+  --good-text: #0ca30c;
+  --accent: #8b5cf6;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-zinc-50 text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100;
+  font-feature-settings: 'ss01';
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Recharts: убираем рамку фокуса у svg */
+.recharts-wrapper svg:focus,
+.recharts-surface:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full border-2 border-solid border-transparent bg-zinc-300 bg-clip-padding dark:bg-zinc-700;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
